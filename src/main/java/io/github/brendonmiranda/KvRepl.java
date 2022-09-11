@@ -28,6 +28,14 @@ public class KvRepl {
 
         boolean live = true;
 
+        System.out.println("READ Reads and prints, to stdout, the val associated with key. If the value is not present an error is printed to stderr.\n" +
+                "WRITE Stores val in key.\n" +
+                "DELETE Removes all key from store. Future READ commands on that key will return an error.\n" +
+                "START Start a transaction.\n" +
+                "COMMIT Commit a transaction. All actions in the current transaction are committed to the parent transaction or the root store. If there is no current transaction an error is output to stderr.\n" +
+                "ABORT Abort a transaction. All actions in the current transaction are discarded.\n" +
+                "QUIT Exit the REPL cleanly. A message to stderr may be output\n");
+
         while (live) {
             final String[] command = parseCommand(scanner.nextLine());
 
