@@ -1,22 +1,20 @@
+package io.github.brendonmiranda;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Repl {
 
-    // todo: unit tests
-    // todo: docker ?
-    // todo: catch exceptions
-
     static class Transaction {
 
-        public Map<String, String> storage;
+        Map<String, String> storage;
 
-        public Transaction parent;
+        Transaction parent;
 
-        public Transaction child;
+        Transaction child;
 
-        public Transaction(Map<String, String> storage, Transaction parent) {
+        Transaction(Map<String, String> storage, Transaction parent) {
             this.storage = storage;
             this.parent = parent;
         }
@@ -77,7 +75,9 @@ public class Repl {
     private static void delete(Transaction transaction, String[] command) {
         try {
             String key = command[1];
-            transaction.storage.remove(key);
+            String v = transaction.storage.remove(key);
+            if (v == null)
+                System.err.println("Sorry, you need to enter a valid key.");
         } catch (IndexOutOfBoundsException e) {
             System.err.println("Sorry, you need to enter a key.");
         }
@@ -91,7 +91,7 @@ public class Repl {
             if (value != null)
                 System.out.println(value);
             else
-                System.err.println("Key not found: " + key);
+                System.err.println("Sorry, you need to enter a valid key.");
 
         } catch (IndexOutOfBoundsException e) {
             System.err.println("Sorry, you need to enter a key.");
@@ -115,13 +115,13 @@ public class Repl {
 
         if (commandArr.length > 1) {
             String key = commandArr[1];
-            String value = "";
+            StringBuilder value = new StringBuilder();
 
             for (int i = 2; i < commandArr.length; i++) {
-                value = value + " " + commandArr[i];
+                value.append(" ").append(commandArr[i]);
             }
 
-            return new String[]{instruction, key, value.trim()};
+            return new String[]{instruction, key, value.toString().trim()};
         }
 
         return new String[]{instruction};

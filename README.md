@@ -69,3 +69,10 @@ $ my-program
 ```
 ./gradlew run -q --console=plain
 ```
+
+# debug
+
+add option below and connect remotely to port 5005
+```
+--debug-jvm
+```

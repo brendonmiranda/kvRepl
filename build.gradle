@@ -1,17 +1,16 @@
 plugins {
-    id 'java'
     id 'application'
 }
 
 group 'io.github.brendonmiranda'
-version '1.0-SNAPSHOT'
+version '1.0-RELEASE'
 
 repositories {
-    mavenCentral()
+
 }
 
 application {
-    mainClass = 'Repl'
+    mainClass = 'io.github.brendonmiranda.Repl'
 }
 
 run {
@@ -19,10 +18,5 @@ run {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-}
 
-test {
-    useJUnitPlatform()
 }
