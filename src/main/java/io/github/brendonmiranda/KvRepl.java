@@ -110,7 +110,11 @@ public class KvRepl {
         try {
             String key = command[1];
             String value = command[2];
-            transaction.storage.put(key, value);
+            if (!"".equals(value)) {
+                transaction.storage.put(key, value);
+            } else {
+                System.err.println("Sorry, you need to enter a valid value.");
+            }
         } catch (IndexOutOfBoundsException e) {
             System.err.println("Sorry, you need to enter a key and a value.");
         }
