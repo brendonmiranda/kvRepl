@@ -1,22 +1,22 @@
 In this exercise we ask you to write a command line REPL (read-eval-print loop) that drives a simple in-memory key/value
 storage system. This system should also allow for nested transactions. A transaction can then be committed or aborted.
 
-• READ <key> Reads and prints, to stdout, the val associated with key. If the value is not present an error is printed to stderr.
+- READ <key> Reads and prints, to stdout, the val associated with key. If the value is not present an error is printed to stderr.
 
-• WRITE <key> <val> Stores val in key.
+- WRITE <key> <val> Stores val in key.
 
-• DELETE <key> Removes all key from store. Future READ commands on that key will return an error.
+- DELETE <key> Removes all key from store. Future READ commands on that key will return an error.
 
-• START Start a transaction.
+- START Start a transaction.
 
-• COMMIT Commit a transaction. All actions in the current transaction are committed to the parent transaction or the root store. If there is no
+- COMMIT Commit a transaction. All actions in the current transaction are committed to the parent transaction or the root store. If there is no
 current transaction an error is output to stderr.
 
-• ABORT Abort a transaction. All actions in the current transaction are discarded.
+- ABORT Abort a transaction. All actions in the current transaction are discarded.
 
-• QUIT Exit the REPL cleanly. A message to stderr may be output
+- QUIT Exit the REPL cleanly. A message to stderr may be output
 
-Example Run:
+## example run 
 
 $ my-program
 
@@ -64,7 +64,7 @@ $ my-program
     
     Exiting..
 
-# run
+# local execution
 
 ```
 ./gradlew run -q --console=plain
