@@ -10,7 +10,7 @@ repositories {
 }
 
 application {
-    mainClass = 'io.github.brendonmiranda.Repl'
+    mainClass = 'io.github.brendonmiranda.KvRepl'
 }
 
 run {

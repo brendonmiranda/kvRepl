@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Repl {
+public class KvRepl {
 
     static class Transaction {
 
