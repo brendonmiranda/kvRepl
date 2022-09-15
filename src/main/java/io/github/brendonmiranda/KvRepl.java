@@ -72,6 +72,8 @@ public class KvRepl {
                     System.err.println("Sorry, unknown command. Please, try again.");
             }
         }
+
+        scanner.close();
     }
 
     private static void printInstructions() {
